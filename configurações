@@ -1,0 +1,36 @@
+ZSH
+1  git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
+2  ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+3  nano ~/.zshrc
+4  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+5  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+6  nano ~/.zshrc
+7  mkdir -p ~/.fonts
+8  git clone https://github.com/pdf/ubuntu-mono-powerline-ttf.git ~/.fonts/ubuntu-mono-powerline-ttf
+9  fc-cache -vf
+
+GRUB E OS PROBER
+sudo apt install os-prober
+sudo os-prober
+sudo update-grub
+
+os-prober is disabled by default. You’d have to enable it first. To do so:
+Open /etc/defaults/grub as sudo to edit:
+sudo nano /etc/default/grub
+Look for the line starting with
+#GRUB_ROOT_FS_RO
+…and change it to
+#GRUB_ROOT_FS_RO=true
+As per the instructions.
+Save, Ctrl+O → Y, and exit, Ctrl+X.
+Update grub:
+sudo update-grub
+If successful, it should be safe to reboot, so do that and test.
+Hope this helps!
+
+# Uncomment this option to enable os-prober execution in the grub-mkconfig command
+# GRUB_DISABLE_OS_PROBER=false
+
+sudo update-grub
+
+
